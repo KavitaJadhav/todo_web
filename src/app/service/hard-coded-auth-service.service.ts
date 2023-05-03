@@ -19,4 +19,8 @@ sessionStorage.setItem('authinticatedUser', username)
   isUserloggedIn(){
     return sessionStorage.getItem('authinticatedUser') != null;
   }
+  
+  logout(){
+    sessionStorage.removeItem('authinticatedUser')
+  }
 }
