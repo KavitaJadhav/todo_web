@@ -1,18 +1,17 @@
 
+
 <header>
-    <nav class="navbar navbar-expand-md navbar-dark">
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
         <a href="https://github.com/KavitaJadhav/todo_web" class="navbar-brand"> My Todo App</a>
-
-        <a href="/" class="navbar-brand"> My Todo App 1</a>
-
+        
         <ul class="navbar-nav">
-            <li><a *ngIf="isUserloggedIn()" routerLink="/" class="navbar-link">Home</a></li>
-            <li><a *ngIf="isUserloggedIn()" routerLink="/todos" class="navbar-link">Todos</a></li>
+            <li><a *ngIf="isUserloggedIn()" routerLink="/" class="navbar-link"> Home </a></li>
+            <li><a *ngIf="isUserloggedIn()" routerLink="/todos" class="navbar-link"> Todos </a></li>
         </ul>
 
         <ul class="navbar-nav navbar-collapse justify-content-end">
-            <li><a *ngIf="!isUserloggedIn()" routerLink="/login" class="navbar-link">Login</a></li>
-            <li><a *ngIf="isUserloggedIn()" routerLink="/logout" class="navbar-link">Logout</a></li>
+            <li><a *ngIf="!isUserloggedIn()" routerLink="/login" class="navbar-link"> Login </a></li>
+            <li><a *ngIf="isUserloggedIn()" routerLink="/logout" class="navbar-link"> Logout </a></li>
         </ul>
     </nav>
 </header>
