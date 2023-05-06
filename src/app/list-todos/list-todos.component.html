@@ -1,5 +1,7 @@
 <h1> My Todos</h1>
 <div class="container">
+<div class="alert alert-success" *ngIf="successMessage" duration="5000"> {{successMessage}}</div>
+<div class="alert alert-success" *ngIf="errorMessage" duration="5000"> {{errorMessage}}</div>
     <table class="table">
         <thead>
             <tr>

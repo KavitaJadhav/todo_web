@@ -20,20 +20,17 @@ export class Todo{
 
 export class ListTodosComponent implements OnInit{
 
+  errorMessage:string
+  successMessage:string
   todos : Todo[] = [] 
-  
-  todos_old = [
-      new Todo(1, 'task1',true, new Date() ),
-      new Todo(2, 'task2',false, new Date() ),
-      new Todo(3, 'task3',false, new Date() ),
-      new Todo(4, 'task4',false, new Date() ),
-  ]
 
   constructor(private service:TodoDataService, private route:Router){
 
   }
 
   ngOnInit(): void {
+    this.errorMessage=''
+    this.successMessage=''
     this.retriveAllTodos();
   }
 
@@ -49,6 +46,11 @@ export class ListTodosComponent implements OnInit{
     this.service.deleteTodo('kavita', id).subscribe(
       response => {
         this.retriveAllTodos()
+        this.successMessage = 'Todo deleted'
+        
+        setTimeout(() => {
+          this.successMessage = '';
+      }, 2000);
       }
     )
   }
