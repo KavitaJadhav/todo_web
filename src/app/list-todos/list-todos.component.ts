@@ -18,6 +18,7 @@ export class Todo{
 })
 
 export class ListTodosComponent implements OnInit{
+
   todos : Todo[] = [] 
   
   todos_old = [
@@ -32,12 +33,23 @@ export class ListTodosComponent implements OnInit{
   }
 
   ngOnInit(): void {
-this.service.retriveAllTodos('kavita').subscribe(
-  response => {
-    this.todos = response
-  }
-)
-
+    this.retriveAllTodos();
   }
 
+  private retriveAllTodos() {
+    this.service.retriveAllTodos('kavita').subscribe(
+      response => {
+        this.todos = response;
+      }
+    );
+  }
+
+  deleteTodo(id: number) {
+    this.service.deleteTodo('kavita', id).subscribe(
+      response => {
+        this.retriveAllTodos()
+      }
+    )
+  }
+  
 }
