@@ -8,19 +8,17 @@ const AuthToken = 'authToken';
 @Injectable({
   providedIn: 'root'
 })
-export class BasicdAuthServiceService {
+export class JWTAuthServiceService {
 
   constructor(private http:HttpClient) { }
 
+  executeJWTAuthentication(username: string, password: string){
 
-  executeBasicAuthentication(username: string, password: string){
-    let authorizationString = 'Basic ' + window.btoa(username + ':' + password)
-    let headers = new HttpHeaders({Authorization: authorizationString})
-    return this.http.get<BasicAuthBean>(`${APP_URL}/basicauth`, {headers}).pipe(
+    return this.http.post<any>(`${APP_URL}/authenticate`, {username: username, password: password}).pipe(
       map(
         data=>{
           sessionStorage.setItem(AuthUser, username)
-          sessionStorage.setItem(AuthToken, authorizationString)
+          sessionStorage.setItem(AuthToken, `Bearer ${data.token}`)
           return data
         }
       )

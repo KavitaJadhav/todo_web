@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { HardCodedAuthServiceService } from '../service/hard-coded-auth-service.service';
 import { BasicdAuthServiceService } from '../service/basic-auth-service.service';
+import { JWTAuthServiceService } from '../service/jwt-auth-service.service';
 
 @Component({
   selector: 'app-login',
@@ -16,7 +17,7 @@ export class LoginComponent {
   password : string = ''
 
   constructor(private router : Router, private hardCodedAuthServiceService:HardCodedAuthServiceService, 
-    private basicdAuthServiceService:BasicdAuthServiceService){
+    private basicdAuthServiceService:BasicdAuthServiceService, private jwtAuthServiceService:JWTAuthServiceService){
     
   }
 
@@ -41,5 +42,16 @@ export class LoginComponent {
       }
     )
   }
-
+  
+  jwtAuthLogin(){
+    this.jwtAuthServiceService.executeJWTAuthentication(this.username, this.password).subscribe(
+     data=>{
+       this.displayError = false
+       this.router.navigate(['welcome', this.username])
+     },
+     error=>{
+       this.displayError = true
+     }
+   )
+ }
 }
