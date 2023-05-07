@@ -25,6 +25,7 @@ sessionStorage.setItem('authinticatedUser', username)
       map(
         data=>{
           sessionStorage.setItem('authinticatedUser', username)
+          sessionStorage.setItem('authToken', authorizationString)
           return data
         }
       )
@@ -35,9 +36,18 @@ sessionStorage.setItem('authinticatedUser', username)
   isUserloggedIn(){
     return sessionStorage.getItem('authinticatedUser') != null;
   }
+
+  getAuthUser(){
+    return sessionStorage.getItem('authinticatedUser')
+  }
+  
+  public getAuthToken(){
+    return sessionStorage.getItem('authToken')
+  }
   
   logout(){
     sessionStorage.removeItem('authinticatedUser')
+    sessionStorage.removeItem('authToken')
   }
 }
 
