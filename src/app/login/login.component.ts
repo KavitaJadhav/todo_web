@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { HardCodedAuthServiceService } from '../service/hard-coded-auth-service.service';
+import { BasicdAuthServiceService } from '../service/basic-auth-service.service';
 
 @Component({
   selector: 'app-login',
@@ -14,10 +15,12 @@ export class LoginComponent {
   username : string = ''
   password : string = ''
 
-  constructor(private router : Router, private hardCodedAuthServiceService:HardCodedAuthServiceService){
+  constructor(private router : Router, private hardCodedAuthServiceService:HardCodedAuthServiceService, 
+    private basicdAuthServiceService:BasicdAuthServiceService){
     
   }
 
+  // Hardcdoe login
   loginUser(){
     if(this.hardCodedAuthServiceService.authinticate(this.username, this.password)){
       this.displayError = false
@@ -26,4 +29,17 @@ export class LoginComponent {
       this.displayError = true
     }
   }
+
+  basicAuthLogin(){
+     this.basicdAuthServiceService.executeBasicAuthentication(this.username, this.password).subscribe(
+      data=>{
+        this.displayError = false
+        this.router.navigate(['welcome', this.username])
+      },
+      error=>{
+        this.displayError = true
+      }
+    )
+  }
+
 }
