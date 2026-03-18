@@ -1,27 +1,73 @@
-# TodoWeb
+# To-Do Web Application 🌐
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.7.
+A simple **frontend web application** for managing to-do tasks. This project is built to demonstrate **full-stack development** when paired with the corresponding backend service: [`todo_spring_api`](https://github.com/KavitaJadhav/todo_spring_api).
 
-## Development server
+---
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## 📌 Summary
 
-## Code scaffolding
+This is the **frontend** for a To-Do app. Users can:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+* Add, update, and delete tasks
+* Mark tasks as completed
+* View tasks dynamically with a clean UI
 
-## Build
+It communicates with the backend service (`todo_spring_api`) for data persistence.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+---
 
-## Running unit tests
+## 🧠 Key Topics
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+* HTML, CSS, JavaScript
+* Frontend-Backend communication (REST API)
+* DOM manipulation & state management
+* Responsive design (optional)
 
-## Running end-to-end tests
+---
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## 📂 Repository Structure
 
-## Further help
+```text id="todowebstr1"
+index.html        # Main page
+style.css         # Styles
+script.js         # Frontend logic & API calls
+assets/           # Images, icons, etc.
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+---
+
+## ▶️ How to Run
+
+1. Clone the repo:
+
+```bash id="todowebrun1"
+git clone https://github.com/KavitaJadhav/todo_web.git
+cd todo_web
+```
+
+2. Open `index.html` in a browser
+3. Make sure the backend service [`todo_spring_api`](https://github.com/KavitaJadhav/todo_spring_api) is running at `http://localhost:8080`
+
+---
+
+## 🔗 Related Backend
+
+The backend service for data persistence is here: [`todo_spring_api`](https://github.com/KavitaJadhav/todo_spring_api)
+
+---
+
+## 🎯 Purpose
+
+* Practice building full-stack applications
+* Demonstrate frontend-backend integration
+* Strengthen web development and REST API usage skills
+
+---
+
+## 📈 Future Improvements
+
+* Add user authentication
+* Improve UI/UX
+* Deploy both frontend and backend together
+
+---
